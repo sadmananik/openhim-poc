@@ -1,0 +1,2 @@
+# Ignore node_modules directories in Lerna packages and parent directories
+**/node_modules

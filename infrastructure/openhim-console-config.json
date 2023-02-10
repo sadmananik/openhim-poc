@@ -1,0 +1,58 @@
+{
+  "Users": [],
+  "Clients": [],
+  "Channels": [
+    {
+      "methods": [
+        "GET"
+      ],
+      "type": "http",
+      "allow": [],
+      "whitelist": [],
+      "authType": "public",
+      "matchContentTypes": [],
+      "properties": [],
+      "txViewAcl": [],
+      "txViewFullAcl": [],
+      "txRerunAcl": [],
+      "status": "enabled",
+      "rewriteUrls": false,
+      "addAutoRewriteRules": true,
+      "autoRetryEnabled": false,
+      "autoRetryPeriodMinutes": 60,
+      "requestBody": true,
+      "responseBody": true,
+      "name": "PING",
+      "description": "Ping another service",
+      "urlPattern": "^/openhim$",
+      "matchContentRegex": null,
+      "matchContentXpath": null,
+      "matchContentValue": null,
+      "matchContentJson": null,
+      "pollingSchedule": null,
+      "tcpHost": null,
+      "tcpPort": null,
+      "rewriteUrlsConfig": [],
+      "alerts": [],
+      "routes": [
+        {
+          "type": "http",
+          "status": "enabled",
+          "forwardAuthHeader": true,
+          "name": "Service2 -> Ping",
+          "secured": false,
+          "host": "service2",
+          "port": 4000,
+          "path": "/ping",
+          "pathTransform": "",
+          "primary": true,
+          "username": "",
+          "password": ""
+        }
+      ],
+      "priority": 1
+    }
+  ],
+  "Mediators": [],
+  "ContactGroups": []
+}

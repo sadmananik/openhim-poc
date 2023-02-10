@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "lerna": "^6.4.1"
+  },
+  "name": "openhim-poc",
+  "private": true,
+  "scripts": {
+    "start": "lerna run start --stream",
+    "dev": "concurrently 'yarn run start' 'yarn run compose:deps'",
+    "compose:deps": "docker-compose -p openhim-poc -f docker-compose-deps.yml up"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
