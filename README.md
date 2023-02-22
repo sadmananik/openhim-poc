@@ -19,7 +19,7 @@ Install the dependencies and devDependencies and start the server.
 ```sh
 cd openhim-poc
 yarn
-yarn dev
+yarn dev (For mac device: LOCAL_IP=host-gateway yarn dev)
 ```
 The application should now be running and you can start making requests to it.
 
