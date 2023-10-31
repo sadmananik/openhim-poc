@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("unit-test") {
-            steps {
-                echo 'UNIT TEST EXECUTION STARTED'
-            }
-        }
         stage("functional-test") {
             steps {
                 echo 'FUNCTIONAL TEST EXECUTION STARTED'
