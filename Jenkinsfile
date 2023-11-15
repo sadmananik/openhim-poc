@@ -19,7 +19,7 @@ pipeline {
 
                 script {
                  checkout scm
-                 synopsys_scan product: "POLARIS", polaris_assessment_types: "SAST"
+                 synopsys_scan product: "POLARIS", polaris_assessment_types: "SAST", polaris_application_name: "test_jenkins"
                 }   
               }
         }
