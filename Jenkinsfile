@@ -4,6 +4,8 @@ pipeline {
         stage("unit-test") {
             steps {
                 echo 'UNIT TEST EXECUTION STARTED'
+                echo 'GIT_URL...' + env.GIT_URL
+                echo 'CHANGE_TARGET...' + env.CHANGE_TARGET
             }
         }
         stage("functional-test") {
