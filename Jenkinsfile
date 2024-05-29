@@ -6,7 +6,7 @@ pipeline {
               	echo 'SYNOPSYS SECURITY SCAN EXECUTION STARTED'
 
                 script {
-                    synopsys_scan product: "POLARIS", polaris_assessment_types: "SCA", polaris_prComment_enabled: true, polaris_reports_sarif_create: true
+                    synopsys_scan product: "POLARIS", polaris_assessment_types: "SCA, SAST", polaris_prComment_enabled: true, polaris_reports_sarif_create: true
                 }	
             }
         }
