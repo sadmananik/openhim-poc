@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'linux-sanik' }
         environment {
         BLACKDUCK_TRUST_CERT=true
     }
