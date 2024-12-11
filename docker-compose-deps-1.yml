@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  mongo-db:
+    container_name: mongo-db
+    image: mongo:4.0
+    volumes:
+      - "mongo-data:/data/db"
+    restart: unless-stopped
+
+  openhim-core:
+    container_name: openhim-core
+    image: jembi/openhim-core:latest
+    restart: unless-stopped
+    environment:
+      mongo_url: "mongodb://mongo-db/openhim-development"
+      mongo_atnaUrl: "mongodb://mongo-db/openhim-development"
+      NODE_ENV: "development"
+    ports:
+      - "8080:8080"
+      - "5000:5000"
+      - "5001:5001"
+    healthcheck:
+     test: "curl -sSk https://openhim-core:8080/heartbeat || exit 1"
+     interval: 30s
+     timeout: 30s
+     retries: 3
+    extra_hosts:
+     - 'service2:${LOCAL_IP-172.17.0.1}'
+
+  openhim-console:
+    container_name: openhim-console
+    image: jembi/openhim-console:latest
+    restart: unless-stopped
+    ports:
+      - "9000:80"
+    healthcheck:
+     test: "curl -sS http://openhim-console || exit 1"
+     interval: 30s
+     timeout: 30s
+     retries: 3
+
+volumes:
+  mongo-data:
